@@ -17,4 +17,5 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Check Current Branch
-        run: echo "Current branch is ${{ github.ref_name }}"
+        run: |
+          echo "Current branch is ${{ github.ref_name }} and target branch is ${{ github.base_ref }}"
