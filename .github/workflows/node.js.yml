@@ -26,10 +26,10 @@ jobs:
           if git diff --quiet origin/master...HEAD -- .github/SOMETHING; then
             echo "file_changed=false" >> "$GITHUB_ENV"
           else
-            echo "file_changed=true" >> "$GITHUB_ENV"
+            echo "action_state=yellow" >> "$GITHUB_ENV"
 
       - name: Replace SOMETHING file if it has changed
-        if: env.file_changed == 'true'
+        if: env.action_state == 'yellow'
         run: |
           # Checkout the SOMETHING file from master
           git checkout origin/master -- .github/SOMETHING
