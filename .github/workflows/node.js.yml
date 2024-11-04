@@ -24,9 +24,9 @@ jobs:
         run: |
           # Check if the SOMETHING file is different between the PR and master
           if git diff --quiet origin/master...HEAD -- .github/SOMETHING; then
-            echo "file_changed=false" >> $GITHUB_ENV
+            echo "file_changed=false" >> "$GITHUB_ENV"
           else
-            echo "file_changed=true" >> $GITHUB_ENV
+            echo "file_changed=true" >> "$GITHUB_ENV"
 
       - name: Replace SOMETHING file if it has changed
         if: env.file_changed == 'true'
